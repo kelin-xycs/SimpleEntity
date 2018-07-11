@@ -1,0 +1,5 @@
+C:\新建文件夹\Projects 2\SimpleEntity\SimpleEntity\bin\Debug\SimpleEntity.dll
+C:\新建文件夹\Projects 2\SimpleEntity\SimpleEntity\bin\Debug\SimpleEntity.pdb
+C:\新建文件夹\Projects 2\SimpleEntity\SimpleEntity\obj\Debug\SimpleEntity.dll
+C:\新建文件夹\Projects 2\SimpleEntity\SimpleEntity\obj\Debug\SimpleEntity.pdb
+C:\新建文件夹\Projects 2\SimpleEntity\SimpleEntity\obj\Debug\SimpleEntity.csprojResolveAssemblyReference.cache
