@@ -93,7 +93,14 @@ namespace Demo
 
             Person person = dbContext.Get<Person>("001");
 
-            ShowPerson(person);
+            if (person == null)
+            {
+                litPerson.Text = "No : 001 的 Person 不存在 。";
+            }
+            else
+            {
+                ShowPerson(person);
+            }
         }
 
         private void ShowPerson(Person person)

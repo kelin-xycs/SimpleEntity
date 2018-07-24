@@ -223,31 +223,39 @@ namespace SimpleEntity
 
         public void Flush()
         {
-            StringBuilder sb = new StringBuilder();
 
-            foreach(string sql in _SqlList)
+            try
             {
-                sb.Append(sql + "; ");
-            }
 
-            using(SqlConnection conn = new SqlConnection(this.connectionString))
-            { 
-                using(SqlCommand cmd = new SqlCommand(sb.ToString(), conn))
+                StringBuilder sb = new StringBuilder();
+
+                foreach (string sql in _SqlList)
                 {
+                    sb.Append(sql + "; ");
+                }
 
-                    foreach(SqlPara para in _ParaList)
+                using (SqlConnection conn = new SqlConnection(this.connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(sb.ToString(), conn))
                     {
-                        cmd.Parameters.AddWithValue(para.name, para.value);
+
+                        foreach (SqlPara para in _ParaList)
+                        {
+                            cmd.Parameters.AddWithValue(para.name, para.value);
+                        }
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
                     }
-
-                    conn.Open();
-
-                    cmd.ExecuteNonQuery();
                 }
             }
+            finally
+            {
+                _SqlList.Clear();
+                _ParaList.Clear();
+            }
 
-            _SqlList.Clear();
-            _ParaList.Clear();
         }
 
         public T Get<T>(object id)
